@@ -1,0 +1,16 @@
+{
+  "name": "sams-grooming-schedule-manager",
+  "version": "1.0.0",
+  "description": "Schedule manager for dog grooming business called Sam's Grooming",
+  "license": "ISC",
+  "author": "Evan Sharp",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "dev start"
+  },
+  "devDependencies": {
+    "electron": "^32.3.3"
+  }
+}
