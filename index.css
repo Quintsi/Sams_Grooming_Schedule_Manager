@@ -1,0 +1,18 @@
+#main {
+    display: flex;
+
+}
+
+#navigation {
+
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+}
+
+#title h1 {
+    display: block;
+    width: 100%;
+}
