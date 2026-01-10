@@ -8,13 +8,13 @@ function loadTableData(data) {
     const table = document.getElementById("tableBody");
     let tableHTML = "";
 
-    data.forEach(clients => {
+    data.forEach(client => {
         tableHTML += `
         <tr>
-            <td>${clients.clientName}</td>
-            <td>${clients.dogName}</td>
-            <td>${clients.phoneNumber}</td>
-            <td>${clients.dogBreed}</td>
+            <td>${client.clientName}</td>
+            <td>${client.dogName}</td>
+            <td>${client.phoneNumber}</td>
+            <td>${client.dogBreed}</td>
         </tr>
         `;
     });
