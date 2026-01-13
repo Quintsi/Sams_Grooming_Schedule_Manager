@@ -1,6 +1,6 @@
 const clients = [
-    {clientName: "Judy", dogName: "Bella", phoneNumber: "514-475-2574", dogBreed: "shih tzu"},
-    {clientName: "Robert", dogName: "Tuukka", phoneNumber: "514-979-3184", dogBreed: "Cockapoo"}
+    {clientName: "Judy", dogName: "Bella", phoneNumber: "514-475-2574", dogBreed: "shih tzu", specialNotes: ""},
+    {clientName: "Robert", dogName: "Tuukka", phoneNumber: "514-979-3184", dogBreed: "Cockapoo", specialNotes: ""}
 ];
 
 function loadTableData(data) {
@@ -20,6 +20,12 @@ function loadTableData(data) {
     });
 
     table.innerHTML = tableHTML;
+}
+
+function addClient() {
+
+    
+
 }
 
 loadTableData(clients);
