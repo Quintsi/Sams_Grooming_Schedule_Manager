@@ -8,17 +8,19 @@ const createWindow = () => {
   })
 
   win.loadFile(path.join(__dirname, 'index.html'))
+
+  createChildWindow(win);
 }
 
 app.whenReady().then(() => {
   createWindow()
 })
 
-const createChildWindow = () => {
+const createChildWindow = (window) => {
   const childWindow = new BrowserWindow({
     width: 400,
     height: 300,
-    parent: win,
+    parent: window,
     modal: true,
     show: false,
     webPreferences: {
@@ -42,8 +44,8 @@ const createChildWindow = () => {
 };
 
 // Example IPC handler to open the window from the renderer
-ipcMain.on('open-child-window', (event, arg) => {
-  createChildWindow();
-});
+//ipcMain.on('open-child-window', (event, arg) => {
+//  createChildWindow();
+//});
 
 // ... your existing mainWindow creation code ...
