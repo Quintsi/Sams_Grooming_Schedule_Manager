@@ -24,7 +24,9 @@ function loadTableData(data) {
     table.innerHTML = tableHTML;
 }
 
-document.getElementById("addClient").addEventListener(onclick, createChildWindow(window))
+document.getElementById("addClient").addEventListener("click", () => {
+    window.api.openAddClient();
+});
 
 
 function addClient() {

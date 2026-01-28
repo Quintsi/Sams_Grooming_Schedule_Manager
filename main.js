@@ -1,19 +1,25 @@
 const path = require("path");
 const { app, BrowserWindow, ipcMain } = require('electron')
 
+let mainWindow;
+
 const createWindow = () => {
-  const win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 600
   })
 
-  win.loadFile(path.join(__dirname, 'index.html'))
+  mainWindow.loadFile(path.join(__dirname, 'index.html'))
 
   createChildWindow(win);
 }
 
 app.whenReady().then(() => {
   createWindow()
+})
+
+ipcMain.on("open-add-client", () => {
+  createChildWindow(mainWindow);
 })
 
 const createChildWindow = (window) => {
