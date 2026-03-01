@@ -1,3 +1,9 @@
+@import "root.css";
+
+* {
+    font-family: var(--font-stack);
+}
+
 #main {
     display: flex;
 
@@ -10,9 +16,20 @@
 #title {
     display: flex;
     justify-content: center;
+    font-family: var(--font-accent);
 }
 
 #title h1 {
     display: block;
     width: 100%;
+}
+
+#logo {
+    max-width: 100%;
+    width: 150px;
+    height: auto;
+}
+
+aside {
+    background: var(--primary-bg-color);
 }
