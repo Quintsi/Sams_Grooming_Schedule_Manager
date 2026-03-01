@@ -1,58 +1,26 @@
-const path = require("path");
-const { app, BrowserWindow, ipcMain } = require('electron')
-
-let mainWindow;
+const { app, BrowserWindow } = require('electron/main')
 
 const createWindow = () => {
-  mainWindow = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600
-  
   })
 
-  mainWindow.loadFile(path.join(__dirname, 'index.html'))
-
-  createChildWindow(win);
+  win.loadFile('index.html')
 }
 
 app.whenReady().then(() => {
   createWindow()
-})
 
-ipcMain.on("open-add-client", () => {
-  createChildWindow(mainWindow);
-})
-
-const createChildWindow = (window) => {
-  const childWindow = new BrowserWindow({
-    width: 400,
-    height: 300,
-    parent: window,
-    modal: true,
-    show: false,
-    webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
-      nodeIntegration: false,
-      contextIsolation: true
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
     }
-  });
+  })
+})
 
-  childWindow.loadFile("addClient.html");
-
-  childWindow.once("ready-to-show", () => {
-    childWindow.show()
-  });
-
-  childWindow.on("closed", () => {
-    //TODO:
-    //preform clean-up operations
-  });
-
-};
-
-// Example IPC handler to open the window from the renderer
-//ipcMain.on('open-child-window', (event, arg) => {
-//  createChildWindow();
-//});
-
-// ... your existing mainWindow creation code ...
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
