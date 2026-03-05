@@ -33,7 +33,3 @@ body {
     width: 150px;
     height: auto;
 }
-
-aside {
-    background: var(--primary-bg-color);
-}
