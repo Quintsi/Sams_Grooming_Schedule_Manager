@@ -1,3 +1,11 @@
+import { initClientsPage } from './clients.js';
+
+const pageInitializers = {
+    //dashboard: initDashboardPage,
+    clients: initClientsPage,
+    //appointments: initAppointmentsPage
+}
+
 document.addEventListener("DOMContentLoaded", async() => {
     await loadNavbar();
     loadPage("dashboard");
@@ -13,6 +21,10 @@ async function loadPage(page){
     const response = await fetch(`pages/${page}.html`);
     const html = await response.text();
     document.getElementById("content").innerHTML = html;
+
+    if(pageInitializers[page]){
+        pageInitializers[page]();
+    }
 }
 
 document.addEventListener("click", (event) => {

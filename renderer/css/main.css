@@ -8,14 +8,15 @@
 body {
     margin: 0;
     height: 100vh;
-    display: flex;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-areas: "nav content";
 }
 
 /* NAVIGATION */
 
 #navigation {
-    width: 240;
-    min-width: 240;
+    grid-area: nav;
 
     display: flex;
     flex-direction: column;
@@ -23,6 +24,14 @@ body {
 
     padding: 1rem;
     background: var(--primary-bg-color);
+}
+
+/* NAV HEADER */
+
+#nav-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* LOGO */
@@ -43,8 +52,10 @@ body {
 /* MAIN CONTENT */
 
 #content{
-    flex: 1;
+    grid-area: content;
+
     padding: 2rem;
+    overflow-y: auto;
     background: var(--accent-bg-color);
 }
 
